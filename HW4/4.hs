@@ -6,7 +6,7 @@ first (a, _, _) = a
 dominant list = checkDominant list (findDominantWrapper list)
 
 checkDominant :: Eq a => [a] -> a -> Maybe(a)
-checkDominant list element = if numTimesFound list element >= (ceiling (fromIntegral (length list) / 2))
+checkDominant list element = if fromIntegral(numTimesFound list element) > ((fromIntegral $ length list) / 2)
   then Just (element)
   else Nothing
 
