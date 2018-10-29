@@ -1,4 +1,4 @@
-import Data.List
+import           Data.List
 
 minMax :: Ord a => [a] -> Maybe (a, a)
 

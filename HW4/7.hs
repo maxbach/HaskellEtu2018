@@ -1,4 +1,4 @@
-import Data.Char
+import           Data.Char
 
 isPalindrome :: String -> Bool
 isPalindrome [] = True
