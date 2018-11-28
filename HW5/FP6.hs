@@ -1,6 +1,8 @@
+module FP6 where
+
 import Data.Monoid ((<>))
 
-newtype SortedList a = SortedList [a] deriving (Eq, Ord)
+newtype SortedList a = SortedList { getSorted :: [a] } deriving (Eq, Ord)
 instance Ord a => Monoid (SortedList a) where
   mempty = SortedList []
   mappend (SortedList xs) (SortedList ys) = SortedList $ mergeSortedLists xs ys
@@ -27,7 +29,7 @@ fsthalf xs = take (length xs `div` 2) xs
 sndhalf :: [a] -> [a]
 sndhalf xs = drop (length xs `div` 2) xs
 
-mergesort :: Ord a => [a] -> SortedList a
-mergesort [] = mempty
-mergesort [x] = singleton x
-mergesort xs = (mergesort (fsthalf xs)) <> (mergesort (sndhalf xs))
+msort :: Ord a => [a] -> SortedList a
+msort [] = mempty
+msort [x] = singleton x
+msort xs = (msort (fsthalf xs)) <> (msort (sndhalf xs))

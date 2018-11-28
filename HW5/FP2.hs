@@ -1,3 +1,5 @@
+module FP2 where
+
 indices :: [a] -> [(Int, a)]
 zeroBy :: Monoid a => [a] -> (a -> Bool) -> [a]
 triplewiseSum :: [Integer] -> [Integer] -> [Integer] -> [Integer]

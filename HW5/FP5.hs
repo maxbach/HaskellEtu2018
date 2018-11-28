@@ -1,6 +1,8 @@
+module FP5 where
+
 import Data.Monoid ((<>))
 
-newtype SortedList a = SortedList [a] deriving (Eq, Ord)
+newtype SortedList a = SortedList { getSorted :: [a] } deriving (Eq, Ord)
 instance Ord a => Monoid (SortedList a) where
   mempty = SortedList []
   mappend (SortedList xs) (SortedList ys) = SortedList $ mergeSortedLists xs ys
