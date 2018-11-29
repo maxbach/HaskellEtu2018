@@ -8,7 +8,6 @@ instance Ord a => Semigroup (SortedList a) where
   SortedList xs <> SortedList ys = SortedList $ mergeSortedLists xs ys
 instance Ord a => Monoid (SortedList a) where
   mempty = SortedList []
-  mappend = (<>)
 
 mergeSortedLists :: Ord a => [a] -> [a] -> [a]
 mergeSortedLists xs [] = xs
